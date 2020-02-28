@@ -1,0 +1,1 @@
+sass --watch resources/scss/common.scss resources/css/common.css
