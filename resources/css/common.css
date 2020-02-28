@@ -1,6 +1,16 @@
 body {
   background-image: url("../../resources/images/bg.png");
-  font: 100% Helvetica, sans-serif;
+  font-family: "Spartan";
+  text-transform: uppercase;
+}
+
+#nav li {
+  float: right;
+  margin: 10px;
+  list-style-type: none;
+}
+#nav li a:hover {
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=common.css.map */

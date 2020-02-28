@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8" />
+        <link href="https://fonts.googleapis.com/css?family=Spartan&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="resources/css/common.css" />
         <title>
             Murat Cengiz
         </title>
     </head>
     <body>
+        <div id="nav">
+            <ul>
+                <li><a onclick="nav(0)">home</a></li>
+                <li><a onclick="nav(1)">cv</a></li>
+                <li><a onclick="nav(2)">portfolio</a></li>
+                <li><a onclick="nav(3)">contact</a></li>
+            </ul>
+        </div>
 
+        <div id="content"></div>
+
+        <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+        <script src="resources/scripts/base.js"></script>
     </body>
 </html>
