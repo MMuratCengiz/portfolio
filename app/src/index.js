@@ -5,7 +5,7 @@ import CVContent from './cv.js';
 import PortfolioContent from './portfolio.js';
 import ContactContent from './contact.js';
 import Utils from './utils.js';
-import { gsap } from 'gsap';
+import {gsap} from 'gsap';
 
 import './css/common.css'
 
@@ -23,8 +23,7 @@ class Navigation extends React.Component {
     }
 
     render() {
-
-        return <HomeContent />;
+        return <HomeContent/>;
     }
 }
 
@@ -42,7 +41,7 @@ class Root extends React.Component {
     render() {
         let header = null
         let nav = null;
-        
+
         switch (this.state.nav_code) {
             case NavCode.Home:
                 header = "Home";
@@ -63,7 +62,6 @@ class Root extends React.Component {
         }
 
         return <div id="body">
-            {/* <div id="header">{header}</div> */}
             <div id="nav">
                 <ul>
                     {this.listEntry(NavCode.Contact, "Contact")}
@@ -72,23 +70,48 @@ class Root extends React.Component {
                     {this.listEntry(NavCode.Home, "Home")}
                 </ul>
             </div>
-        
-            {nav}
-            </div>;
+
+            <HomeContent/>
+            <CVContent/>
+        </div>;
+    }
+
+
+    componentDidMount() {
+        for (let i = 0; i <= 3; ++i) {
+            document.getElementById("content-inner" + i).style.display = "none";
+        }
+
+        this.show(0);
+
+        for (let i = 0; i <= 3; ++i) {
+            document.getElementById("content-inner" + i).style.display = "inherit";
+        }
+    }
+
+    hideAll() {
+        for (let i = 0; i <= 3; ++i) {
+            gsap.to("#content-inner" + i, { x: "200%", immediateRender: true });
+        }
     }
 
     listEntry(activateCode, name) {
-        return <li class={(this.state.nav_code === activateCode ? "active" : "")}>
-            <button onClick={(e) => this.nav(activateCode)} style={{ backgroundColor: Utils.randomColor() }}>
+        return <li className={(this.state.nav_code === activateCode ? "active" : "")}>
+            <button onClick={(e) => this.nav(activateCode)} style={{backgroundColor: Utils.randomColor()}}>
                 {name}
             </button>
         </li>
     }
 
+    show(code) {
+        this.hideAll();
+        gsap.to(".content-inner" + code, {x: "0%"});
+    }
+
     nav(code) {
-        gsap.to(".content", 1, { x: 2000 });
-        this.setState({ nav_code: code })
+        this.show(code);
+        this.setState({nav_code: code})
     }
 }
 
-ReactDOM.render(<Root code={NavCode.Home}></Root>, document.getElementById("root"));
+ReactDOM.render(<Root code={NavCode.Home}/>, document.getElementById("root"));

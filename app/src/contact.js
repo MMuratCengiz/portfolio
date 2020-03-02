@@ -2,8 +2,10 @@ import React from 'react';
 
 
 // ---- CONTENT START ----
-let content = 
-    <div class="content">
+let content =
+    <div className="content">
+        <div id="content-inner3">
+        </div>
     </div>
 ;
 // ---- CONTENT END ----
