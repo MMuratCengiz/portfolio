@@ -5,7 +5,6 @@ import CVContent from './cv.js';
 import PortfolioContent from './portfolio.js';
 import ContactContent from './contact.js';
 import Utils from './utils.js';
-import {gsap} from 'gsap';
 
 import './css/common.css'
 
@@ -17,16 +16,6 @@ let NavCode = {
     Contact: 3
 };
 
-class Navigation extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return <HomeContent/>;
-    }
-}
-
 class Root extends React.Component {
     constructor(props) {
         super(props);
@@ -36,6 +25,8 @@ class Root extends React.Component {
         this.state = {
             nav_code: NavCode.Home
         };
+
+        this.inAnimation = false;
     }
 
     render() {
@@ -63,6 +54,8 @@ class Root extends React.Component {
 
         return <div id="body">
             <div id="nav">
+                <div id="profile_image" />
+                <h1 id="title">Murat Cengiz</h1>
                 <ul>
                     {this.listEntry(NavCode.Contact, "Contact")}
                     {this.listEntry(NavCode.Portfolio, "Portfolio")}
@@ -71,44 +64,41 @@ class Root extends React.Component {
                 </ul>
             </div>
 
-            <HomeContent/>
-            <CVContent/>
+            <div class="content">
+                <HomeContent />
+                <CVContent />
+                <PortfolioContent />
+                <ContactContent />
+            </div>
         </div>;
-    }
-
-
-    componentDidMount() {
-        for (let i = 0; i <= 3; ++i) {
-            document.getElementById("content-inner" + i).style.display = "none";
-        }
-
-        this.show(0);
-
-        for (let i = 0; i <= 3; ++i) {
-            document.getElementById("content-inner" + i).style.display = "inherit";
-        }
-    }
-
-    hideAll() {
-        for (let i = 0; i <= 3; ++i) {
-            gsap.to("#content-inner" + i, { x: "200%", immediateRender: true });
-        }
     }
 
     listEntry(activateCode, name) {
         return <li className={(this.state.nav_code === activateCode ? "active" : "")}>
-            <button onClick={(e) => this.nav(activateCode)} style={{backgroundColor: Utils.randomColor()}}>
+            <button onClick={(e) => this.nav(activateCode)} >
                 {name}
             </button>
         </li>
     }
 
     show(code) {
-        this.hideAll();
-        gsap.to(".content-inner" + code, {x: "0%"});
+        if (code === 0) {
+            window.scrollTo(0, 0);
+        } else {
+            window.scrollTo(0, document.getElementById("content-inner" + code).getBoundingClientRect().y);
+        }
+        document.getElementById("content-inner" + code).style.display = "block";
     }
 
     nav(code) {
+        if (this.inAnimation) {
+            return;
+        }
+
+        for (let i = 0; i <= 3; ++i) {
+            document.getElementById("content-inner" + i).style.display = "block";
+        }
+
         this.show(code);
         this.setState({nav_code: code})
     }

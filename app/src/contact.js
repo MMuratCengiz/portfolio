@@ -3,9 +3,7 @@ import React from 'react';
 
 // ---- CONTENT START ----
 let content =
-    <div className="content">
-        <div id="content-inner3">
-        </div>
+    <div id="content-inner3">
     </div>
 ;
 // ---- CONTENT END ----

@@ -1,0 +1,16 @@
+li {
+  margin-top: 10px;
+}
+
+#content-inner0 {
+  width: 90%;
+  padding: 20px;
+}
+
+@media screen and (max-width: 900px) {
+  .bio {
+    margin-top: 100px;
+  }
+}
+
+/*# sourceMappingURL=home.css.map */

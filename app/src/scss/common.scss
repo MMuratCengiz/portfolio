@@ -2,11 +2,13 @@
 @import url('https://fonts.googleapis.com/css?family=Dosis&display=swap');
 
 $font: 'Spartan';
-
+$fontColor: white;
+$navSize: 225px;
 
 body {
-  background-image: url('../images/bg.png');
   font-family: $font;
+  color: $fontColor;
+  background-image: url('../images/bg4.png');
 }
 
 #header {
@@ -17,6 +19,21 @@ body {
 }
 
 #nav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: $navSize + 50px;
+  padding: 5px;
+  z-index: 200;
+  background-image: url('../images/bg4.png');
+
+  ul {
+    position: absolute;
+    top: 20px;
+    right: 2%;
+  }
+
   li {
     padding: 0;
     float: right;
@@ -32,7 +49,8 @@ body {
       font-family: $font;
       font-size: 20pt;
       outline: none;
-      opacity: 0.65;
+      opacity: 0.45;
+      color: white;
     }
 
     button:hover {
@@ -44,25 +62,102 @@ body {
 
   .active {
     button {
-      opacity: 1;
+      opacity: 0.8;
     }
   }
 }
 
+#title {
+  position: absolute;
+  display: inline-flex;
+  font-size: 28pt;
+}
+
 #profile_image {
   background-image: url('../images/profile.png');
-  width: 225px;
-  height: 225px;
+  width: $navSize;
+  height: $navSize;
   border-radius: 150px;
-  opacity: 0.80;
+  border: 10px solid white;
+  opacity: 0.70;
+  display: inline-flex;
+  margin: 20px;
 }
 
 .content {
+  width: 100%;
   position: absolute;
-  top: 10%;
-  left: 5%;
+  top: $navSize + 50px;
+  left: 0;
 }
 
-.bio {
-  font-size: 22pt;
+@media screen and (max-width: 900px) {
+  #nav {
+    position: absolute;
+    height: 350px + $navSize;
+    width: 100%;
+  }
+
+  .content {
+    width: 100%;
+    position: absolute;
+    top: 350px + $navSize + 50px;
+  }
+
+  #nav {
+    ul {
+      width: 90%;
+      right: 5%;
+      margin-top: $navSize + 50px;
+    }
+    li {
+      width: 100%;
+      button {
+        width: 100%;
+        background-color: transparent;
+      }
+    }
+  }
+
+  #profile_image, #title {
+    top: 10px;
+    position: absolute;
+    left: calc(50% - 150px);
+  }
+
+  #title {
+    top: 50px + $navSize;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  #nav {
+    ul {
+      width: 90%;
+      right: 5%;
+      top: 100px;
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media screen and (min-width:0px) and (max-width: 600px) {
+  .content {
+    font-size: 18pt;
+  }
+}
+
+@media screen and (min-width:600px) and (max-width: 1200px) {
+  .content {
+    font-size: 18pt;
+  }
+}
+
+@media screen and (min-width:1200px) {
+  .content {
+    font-size: 20pt;
+  }
 }

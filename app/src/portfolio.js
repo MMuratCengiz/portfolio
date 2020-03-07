@@ -1,19 +1,26 @@
 import React from 'react';
 
-
-// ---- CONTENT START ----
-let content =
-    <div className="content">
-        <div id="content-inner2">
+class PortfolioEntry extends React.Component {
+    render() {
+        return <div class={"portfolio_entry"}>
+            <span className={"title"}>{this.props.title}</span><br/>
+            <img className={"portfolio_image"} src={this.props.image_url} />
+            <span><b>Description:</b> {this.props.description}</span><br/>
+            <span><b>GitHub Url: </b>{this.props.url}</span><br/>
+            <span><b>Project Development Year: </b>{this.props.year}</span>
         </div>
-    </div>
-;
-// ---- CONTENT END ----
-
+    }
+}
 
 class PortfolioContent extends React.Component {
     render() {
-        return content;
+        return <div id="content-inner2">
+            <PortfolioEntry title={"OChess"} image_url={"images/ochess.png"} description={this.oChessDescription()}/>
+        </div>;
+    }
+
+    oChessDescription() {
+        return "";
     }
 }
 
