@@ -4,7 +4,6 @@ import HomeContent from './home.js';
 import CVContent from './cv.js';
 import PortfolioContent from './portfolio.js';
 import ContactContent from './contact.js';
-import Utils from './utils.js';
 
 import './css/common.css'
 
@@ -30,28 +29,6 @@ class Root extends React.Component {
     }
 
     render() {
-        let header = null
-        let nav = null;
-
-        switch (this.state.nav_code) {
-            case NavCode.Home:
-                header = "Home";
-                nav = <HomeContent/>
-                break;
-            case NavCode.CV:
-                header = "CV";
-                nav = <CVContent/>;
-                break;
-            case NavCode.Portfolio:
-                header = "Portfolio";
-                nav = <PortfolioContent/>;
-                break;
-            case NavCode.Contact:
-                header = "Contact";
-                nav = <ContactContent/>;
-                break;
-        }
-
         return <div id="body">
             <div id="nav">
                 <div id="profile_image" />
@@ -64,7 +41,7 @@ class Root extends React.Component {
                 </ul>
             </div>
 
-            <div class="content">
+            <div className="content">
                 <HomeContent />
                 <CVContent />
                 <PortfolioContent />
@@ -85,9 +62,8 @@ class Root extends React.Component {
         if (code === 0) {
             window.scrollTo(0, 0);
         } else {
-            window.scrollTo(0, document.getElementById("content-inner" + code).getBoundingClientRect().y);
+            window.scrollTo(0, document.getElementById("content-inner" + code).offsetTop);
         }
-        document.getElementById("content-inner" + code).style.display = "block";
     }
 
     nav(code) {
@@ -100,7 +76,29 @@ class Root extends React.Component {
         }
 
         this.show(code);
-        this.setState({nav_code: code})
+        this.setState({nav_code: code});
+    }
+
+    componentDidMount() {
+        Window.onscroll = (ev) => { this.onscroll() };
+    }
+
+    onscroll() {
+        if (window.scrollY < document.getElementById("content-inner1").offsetTop) {
+            this.setState({nav_code: 0});
+        }
+
+        if (window.scrollY < document.getElementById("content-inner2").offsetTop) {
+            this.setState({nav_code: 1});
+        }
+
+        if (window.scrollY < document.getElementById("content-inner3").offsetTop) {
+            this.setState({nav_code: 2});
+        }
+
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+            this.setState({nav_code: 3});
+        }
     }
 }
 

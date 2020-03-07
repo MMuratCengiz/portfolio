@@ -18,12 +18,14 @@ let content =
             Hi, I'm Murat. I am a {color("Software Developer", true)} for more tha {color("4", true)} years, I'm an experienced in {color("Networking")}, {color("Backend development")} and in {color("Compiler Theory")}.<br />
             <br />
             My core values are:
-            <ul>
+        </p>
+        <ul>
                 <li>{color("Simplicity: ", true)} if a solution is simple and elegant, its may not always be correct, but it has the highest chance that a developer implements it.</li>
                 <li>{color("Communication: ", true)} humans are social creatures, and communication has been {color("the number 1")} reason of human domination, imagine if we were actually good at it.</li>
                 <li>{color("Persistence: ", true)} punch a mountain once and nothing happens, punch it a thousand times and you break your hand, persistence gives {color("results")}.</li>
-            </ul> <br/>
-            I am, in general open to offers, and I'll definitely be wanting to hear from you if you are anything near technology.
+            </ul>
+        <p>
+        I am, in general open to offers, and I'll definitely be wanting to hear from you if you are anything near technology.
         </p>
     </div>
 ;
@@ -32,10 +34,6 @@ let content =
 let moveToRight = true;
 
 export class HomeContent extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     componentDidMount() {
         document.getElementById("profile_image").onmouseenter = () => {
             gsap.to("#profile_image", { x: moveToRight ? "200%" : "5%", rotateZ: moveToRight ? 180: 0 });

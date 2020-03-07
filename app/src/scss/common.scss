@@ -67,6 +67,22 @@ body {
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+#content-inner1, #content-inner2, #content-inner3 {
+  padding: 20px;
+  width: calc(100% - 40px);
+  font-size: 14pt;
+}
+
+
+a:visited {
+  color: white;
+  text-anchor: end;
+}
+
 #title {
   position: absolute;
   display: inline-flex;
@@ -138,10 +154,6 @@ body {
       top: 100px;
     }
   }
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 @media screen and (min-width:0px) and (max-width: 600px) {
