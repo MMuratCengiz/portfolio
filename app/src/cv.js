@@ -4,7 +4,7 @@ import './css/cv.css';
 
 class Education extends React.Component {
     render() {
-        return  <div className={"entry"}>
+        return  <div className={"entry"}><div className={"background"} />
             <span className={"title"} style={{color: Utils.randomColor()}}>{this.props.title}</span><br/>
             <span><b>From:</b> {this.props.from_date}</span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;To:</b> {this.props.to_date}</span><br/>
             <span><b>Institution: </b> Epoka University in Tirana Albania</span><br/>
@@ -16,7 +16,7 @@ class Education extends React.Component {
 
 class WorkExperience extends React.Component {
     render() {
-        return <div className={"entry"}>
+        return <div className={"entry"}><div className={"background"} />
             <span className={"title"} style={{color: Utils.randomColor()}}>{this.props.title}</span><br/>
             <span><b>From:</b> {this.props.from_date}</span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;To:</b> {this.props.to_date}</span><br/>
             <span><b>Main Tools & Technologies: </b>{this.props.tech}</span><br/>
@@ -28,7 +28,7 @@ class WorkExperience extends React.Component {
 
 class SkillsNConferences extends React.Component {
     render() {
-        return <div className={"entry"}>
+        return <div className={"entry"}><div className={"background"} />
             <h2>Digital competence: </h2>
             <ul>
                 <li>Good command in Object Oriented Programming concepts, as well as good coding principles and practices.</li>
@@ -116,7 +116,7 @@ class CVContent extends React.Component {
     }
 
     job1() {
-        return <div className={"entry"}>
+        return <div className={"entry"}><div className={"background"} />
             <span className={"title"}>Teacher assistant at Epoka University (Albania) </span><br/>
             <span><b>From:</b>02/02/2014</span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;To:</b>15/06/2014</span><br/>
             <span><b>Duties: </b></span><br/>Help with the Data structures and Algorithms course. Check programming assignments, generate programming course material, instruct lab lessons.

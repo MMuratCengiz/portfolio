@@ -1,24 +1,21 @@
 import React from 'react';
-import "./css/portfolio.css"
 import OChessFrame from './images/ochess.gif'
+import NA from './images/na.png'
 
 class PortfolioEntry extends React.Component {
     render() {
-        return <table className={"portfolio-entry"}>
-            <tbody>
-            <tr>
-                <td className={"portfolio-image"}><img src={this.props.image_url} alt={""} width={300}
-                                                       height={300}/></td>
-                <td>
+        return <div className={"entry"}><div className={"background"} />
+            <div className={"row"}>
+                <div className={"column"}><img src={this.props.image_url} alt={""} className={"portfolio-image"}/></div>
+                <div className={"column"}>
                     <span className={"title"}><h3>{this.props.title}</h3></span>
                     <span><b className={"portfolio-cat"}>Description:</b> {this.props.description}</span><br/>
                     <span><b className={"portfolio-cat"}>Technologies Used: </b>{this.props.techs}</span><br/>
                     <span><b className={"portfolio-cat"}>GitHub Url: </b>{this.props.url}</span><br/>
                     <span><b className={"portfolio-cat"}>Project Development Year: </b>{this.props.year}</span>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+                </div>
+            </div>
+        </div>
     }
 }
 
@@ -38,12 +35,12 @@ class PortfolioContent extends React.Component {
                                "set of Chess, additionally supports a lobby and a stat system."}
                                techs={"Java, Spring Boot, Hibernate, WebSockets, WebMVC, PostgreSQL pure JS and CSS."}
                                url={<a
-                                   href={"https://github.com/MMuratCengiz/ochess"}>https://github.com/MMuratCengiz/ochess</a>}
+                                   href={"https://github.com/MMuratCengiz/ochess"}>/MMuratCengiz/ochess</a>}
                                year={"2020"}/>;
     }
 
     aklocking() {
-        return <PortfolioEntry title={"AKLocking"} image_url={""}
+        return <PortfolioEntry title={"AKLocking"} image_url={NA}
                                description={"A distributed lock management system, the application handles locking" +
                                " multitudes of files in a file system that the server accesses, optimizes read/write" +
                                " locking as well load balancing of the lock manager processes, this was done from a " +
@@ -54,7 +51,7 @@ class PortfolioContent extends React.Component {
     }
 
     game() {
-        return <PortfolioEntry title={"Heeli"} image_url={""}
+        return <PortfolioEntry title={"Heeli"} image_url={NA}
                                description={"A game developed to present the usage of scripting languages " +
                                "in a game engine, this game exposes a large portion of the draw calls to the " +
                                "scripting language."}

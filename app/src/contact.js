@@ -11,7 +11,7 @@ let content =
 
                 <b>Phone: </b> 00355674820194 <br/>
                 <b>Email: </b> cengizm9@gmail.com <br/>
-                <b>LinkedIn: </b> <a href={"linkedin.com/in/murat-cengiz-639bbaa9/"}>linkedin.com/in/murat-cengiz-639bbaa9/</a>
+                <b>LinkedIn: </b> <a href={"linkedin.com/in/murat-cengiz-639bbaa9/"}>/murat-cengiz-639bbaa9/</a>
             </p>
         </div>
     </div>

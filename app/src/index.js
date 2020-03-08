@@ -76,27 +76,20 @@ class Root extends React.Component {
         }
 
         this.show(code);
-        this.setState({nav_code: code});
     }
 
     componentDidMount() {
-        Window.onscroll = (ev) => { this.onscroll() };
+        document.body.onscroll = (ev) => { this.onscroll() };
     }
 
     onscroll() {
-        if (window.scrollY < document.getElementById("content-inner1").offsetTop) {
+        if (window.scrollY < document.getElementById("content-inner1").offsetTop - 150) {
             this.setState({nav_code: 0});
-        }
-
-        if (window.scrollY < document.getElementById("content-inner2").offsetTop) {
+        } else if (window.scrollY < document.getElementById("content-inner2").offsetTop - 150) {
             this.setState({nav_code: 1});
-        }
-
-        if (window.scrollY < document.getElementById("content-inner3").offsetTop) {
+        } else if (window.scrollY < document.getElementById("content-inner3").offsetTop - 800) {
             this.setState({nav_code: 2});
-        }
-
-        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        } else {
             this.setState({nav_code: 3});
         }
     }

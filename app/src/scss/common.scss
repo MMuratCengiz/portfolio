@@ -2,13 +2,14 @@
 @import url('https://fonts.googleapis.com/css?family=Dosis&display=swap');
 
 $font: 'Spartan';
-$fontColor: white;
-$navSize: 225px;
+$fontColor: black;
+$navSize: 150px;
 
 body {
   font-family: $font;
   color: $fontColor;
-  background-image: url('../images/bg4.png');
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 #header {
@@ -27,6 +28,7 @@ body {
   padding: 5px;
   z-index: 200;
   background-image: url('../images/bg4.png');
+  color: white;
 
   ul {
     position: absolute;
@@ -39,7 +41,7 @@ body {
     float: right;
     margin: 10px;
     list-style-type: none;
-    
+
     button, button:active {
       text-transform: uppercase;
       background: none;
@@ -87,10 +89,13 @@ a:visited {
   position: absolute;
   display: inline-flex;
   font-size: 28pt;
+  margin-top: $navSize / 2;
+  margin-left: 20px;
 }
 
 #profile_image {
   background-image: url('../images/profile.png');
+  background-size: $navSize;
   width: $navSize;
   height: $navSize;
   border-radius: 150px;
@@ -101,23 +106,60 @@ a:visited {
 }
 
 .content {
-  width: 100%;
+  width: 70%;
   position: absolute;
   top: $navSize + 50px;
-  left: 0;
+  left: 15%;
 }
 
-@media screen and (max-width: 900px) {
+.background {
+  position: initial;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background-image: url('../images/bg4.png');
+  opacity: 1;
+}
+
+.entry {
+  background-color: rgba(24, 55, 98, 0.0);
+  width: 95%;
+  padding: 20px;
+  border: 2px solid rgba(24, 55, 98, 0.1);
+  margin-top: 25px;
+
+  .portfolio-image {
+    width: 310px;
+    height: 310px
+  }
+}
+
+@media screen and (max-width: 1200px) {
   #nav {
+    border: 0;
+    padding: 12px;
     position: absolute;
-    height: 350px + $navSize;
+    height: 450px + $navSize;
     width: 100%;
   }
 
   .content {
-    width: 100%;
     position: absolute;
+    margin: 0;
+    padding: 10px;
+    left: 0;
+    width: calc(100% - 24px); // 10 * 2 from padding, 2 * 2 from the border
     top: 350px + $navSize + 50px;
+  }
+
+  #content-inner1, #content-inner2, #content-inner3 {
+    padding: 0;
+    width: 100%;
+    font-size: 11pt;
   }
 
   #nav {
@@ -125,9 +167,12 @@ a:visited {
       width: 90%;
       right: 5%;
       margin-top: $navSize + 50px;
+      top: 100px;
     }
+
     li {
       width: 100%;
+
       button {
         width: 100%;
         background-color: transparent;
@@ -138,38 +183,25 @@ a:visited {
   #profile_image, #title {
     top: 10px;
     position: absolute;
-    left: calc(50% - 150px);
+    left: calc(50% - 120px);
   }
 
   #title {
     top: 50px + $navSize;
+    margin-top: 20px;
+    margin-left: -20px;
   }
-}
 
-@media screen and (max-width: 1200px) {
-  #nav {
-    ul {
-      width: 90%;
-      right: 5%;
-      top: 100px;
+  .entry {
+    .portfolio-image {
+      width: calc(95% + 12px);
+      height: calc(95% + 12px);
     }
   }
 }
 
-@media screen and (min-width:0px) and (max-width: 600px) {
+@media screen and (min-width: 1200px) {
   .content {
     font-size: 18pt;
-  }
-}
-
-@media screen and (min-width:600px) and (max-width: 1200px) {
-  .content {
-    font-size: 18pt;
-  }
-}
-
-@media screen and (min-width:1200px) {
-  .content {
-    font-size: 20pt;
   }
 }

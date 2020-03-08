@@ -15,7 +15,7 @@ function color(text, bolden = false) {
 let content =
     <div id="content-inner0">
         <p className={"bio"}>
-            Hi, I'm Murat. I am a {color("Software Developer", true)} for more tha {color("4", true)} years, I'm an experienced in {color("Networking")}, {color("Backend development")} and in {color("Compiler Theory")}.<br />
+            Hi, I'm Murat. I am a {color("Software Developer", true)} for more than {color("4", true)} years, I'm an experienced in {color("Networking")}, {color("Backend development")} and in {color("Compiler Theory")}.<br />
             <br />
             My core values are:
         </p>
