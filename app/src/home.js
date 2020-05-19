@@ -15,14 +15,14 @@ function color(text, bolden = false) {
 let content =
     <div id="content-inner0">
         <p className={"bio"}>
-            Hi, I'm Murat. I am a {color("Software Developer", true)} for more than {color("4", true)} years, I'm an experienced in {color("Networking")}, {color("Backend development")} and in {color("Compiler Theory")}.<br />
+            Hi, I'm Murat. I am a {color("Software Developer", true)} for more than {color("4", true)} years, I'm experienced in {color("Networking")}, {color("Backend development")} and in {color("Compiler Theory")}.<br />
             <br />
             My core values are:
         </p>
         <ul>
-                <li>{color("Simplicity: ", true)} if a solution is simple and elegant, its may not always be correct, but it has the highest chance that a developer implements it.</li>
+                <li>{color("Simplicity: ", true)} if a solution is simple and elegant, it may not always be correct, but it has the highest chance that a developer implements it.</li>
                 <li>{color("Communication: ", true)} humans are social creatures, and communication has been {color("the number 1")} reason of human domination, imagine if we were actually good at it.</li>
-                <li>{color("Persistence: ", true)} punch a mountain once and nothing happens, punch it a thousand times and you break your hand, persistence gives {color("results")}.</li>
+                <li>{color("Persistence: ", true)} punch a mountain once and nothing happens, punch it a thousand times and you break your hand. Persistence gives {color("results")}.</li>
             </ul>
         <p>
         I am, in general open to offers, and I'll definitely be wanting to hear from you if you are anything near technology.

@@ -23,10 +23,19 @@ class PortfolioContent extends React.Component {
     render() {
         return <div id="content-inner2">
             <h1>Personal Projects: </h1>
+            {this.someGL()}
             {this.ochess()}
             {this.aklocking()}
             {this.game()}
         </div>;
+    }
+
+    someGL() {
+        return <PortfolioEntry title={"SomeGL"} image_url={NA}
+                               description={"An ongoing custom experimental game engine to learn how Graphics API's and Shader's, so far supports model loading and lighting."}
+                               techs={"C++ 97, OpenGL, GLSL, GLM(Mathematics for OpenGL)."}
+                               url={"Todo"}
+                               year={"2020"}/>;
     }
 
     ochess() {
