@@ -32,7 +32,9 @@ class PortfolioContent extends React.Component {
 
     someGL() {
         return <PortfolioEntry title={"SomeGL"} image_url={NA}
-                               description={"An ongoing custom experimental game engine to learn how Graphics API's and Shader's, so far supports model loading and lighting."}
+                               description={"An ongoing custom experimental rendering engine to learn how Graphics API's and Shaders work, " + 
+                                            "so far it supports basic camera and primitive loading, .obj model loading and various different types of lighting(spotlights, directional lights and point lights)." +
+                                            " It also implements texture caching and makes heavy use of VBO reuse for performance improvements."}
                                techs={"C++ 97, OpenGL, GLSL, GLM(Mathematics for OpenGL)."}
                                url={"Todo"}
                                year={"2020"}/>;
